@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+
+  pgdb:
+    container_name: pgdb
+    image: postgres:15.4-alpine
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+      - POSTGRES_DB=pgdb
+    volumes:
+      - ./LandingPage/pgdata:/var/lib/postgresql/data
+    ports:
+      - "5438:5432"
