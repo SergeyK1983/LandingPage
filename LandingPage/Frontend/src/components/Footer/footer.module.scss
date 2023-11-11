@@ -1,0 +1,71 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+.footer{
+  background-color: $footerBackgroundColor;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 315px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer_container{
+  width: 1440px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+}
+
+.footer_container__info{
+  margin-left: 130px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container_image_links{
+  margin-top: 35px;
+}
+
+.container_conf{
+  margin-top: 74px;
+}
+
+.link_mail{
+  @include textMontserrat(18px, 400, #FFFFFF);
+  @include linkReset();
+  display: flex;
+  align-items: center;
+}
+
+.link_mail__span{
+  margin-left: 8px;
+}
+
+.link_img:last-child{
+  margin-left: 8px;
+}
+
+.link_conf{
+  @include textMontserrat(16px, 400, #FFFFFF);
+  @include linkReset();
+}
+
+.footer_container__about{
+  margin-left: 547.89px;
+  display: flex;
+  flex-direction: column;
+}
+
+.link_about{
+  @include textMontserrat(16px, 400, #FFFFFF);
+  @include linkReset();
+  margin-top: 12px;
+}
+
+.footer_container__career{
+  margin-left: 63.68px;
+  display: flex;
+  flex-direction: column;
+}
