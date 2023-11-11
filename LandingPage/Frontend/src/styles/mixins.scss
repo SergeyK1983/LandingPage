@@ -1,0 +1,24 @@
+@import "./colors";
+
+@mixin textMontserrat($size, $weight, $color){
+  color: $color;
+  font-family: 'Montserrat', sans-serif;
+  font-size: $size;
+  font-style: normal;
+  font-weight: $weight;
+  line-height: normal;
+}
+
+@mixin textUbuntu($size, $weight, $color){
+  color: $color;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: $size;
+  font-style: normal;
+  font-weight: $weight;
+  line-height: normal;
+}
+
+@mixin linkReset(){
+  text-decoration: none;
+  cursor: pointer;
+}
