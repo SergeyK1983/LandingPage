@@ -1,0 +1,32 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.header{
+  height: 94px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: $layoutBackgroundColor;
+}
+
+.header_container{
+  width: 1440px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_container__logo{
+  margin-left: 130px;
+}
+
+.header_container__nav{
+  margin-right: 60px;
+  margin-left: 23px;
+}
+
+.nav_link{
+  @include textMontserrat(18px, 400, #000000);
+  @include linkReset();
+  margin-right: 40px;
+}
