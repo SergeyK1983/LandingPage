@@ -1,0 +1,12 @@
+@import "../../../styles/mixins";
+@import "../../../styles/colors";
+.message_container{
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 35px 35px 35px 0;
+  background-color: $messageBackgroundColor;
+}
+
+.message_container:last-of-type{
+  margin-bottom: 10px;
+}

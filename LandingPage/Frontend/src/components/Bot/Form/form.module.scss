@@ -1,0 +1,55 @@
+@import "../../../styles/mixins";
+@import "../../../styles/colors";
+.form_container{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.form_block{
+  display: flex;
+  flex-flow: column;
+}
+
+.form_block__small{
+  display: flex;
+  flex-flow: column;
+  margin-left: 10px;
+}
+
+.label_text{
+  @include textMontserrat(16px, 400, #323843);
+  margin-bottom: 8px;
+}
+
+.medium_input{
+  @include inputInForm(215px);
+}
+
+.small_input{
+  @include inputInForm(80px);
+}
+
+.large_input{
+  @include inputInForm(365px);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.confidence_text{
+  @include textMontserrat(14px, 400, #000000);
+}
+
+.form_button{
+  cursor: pointer;
+  margin-top: 15px;
+  width: 425px;
+  padding: 20px 30px;
+  border-radius: 46px;
+  border: 2px solid #323843;
+  background-color: #E2F497;
+  @include textMontserrat(20px, 600, #323843);
+}
