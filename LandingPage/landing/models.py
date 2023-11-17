@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class User(models.Model):
     full_name = models.CharField(max_length=255, verbose_name="ФИО")
     age = models.IntegerField(verbose_name="Возраст")
