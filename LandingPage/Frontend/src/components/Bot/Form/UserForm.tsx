@@ -6,8 +6,6 @@ import { IUserForm } from "../../../types/userForm.ts";
 import { SubmitHandler, useForm } from "react-hook-form";
 import classNames from "classnames";
 import { sendSecondMessage } from "../../../store/slices/chatBotSlice.ts";
-import { Simulate } from "react-dom/test-utils";
-import error = Simulate.error;
 
 const UserForm: FunctionComponent = (): ReactElement => {
     const {
