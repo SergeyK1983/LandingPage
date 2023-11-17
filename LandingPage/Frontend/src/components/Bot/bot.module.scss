@@ -21,7 +21,6 @@
 .chatWindow{
   width: 505px;
   height: 742px;
-  margin-right: 80px;
   border-radius: 20px 20px 0 20px;
   border: 2px solid #505661;
   background-color: #F1F1FA;
@@ -60,11 +59,26 @@
 }
 
 ::-webkit-scrollbar{
-  width: 0;
+  width: 4px;
+}
+
+::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #9F9F9F;
+  border-radius: 2px;
 }
 
 .chatWindow_message__text{
   @include textMontserrat(18px, 400, #000000);
+}
+
+.chatWindow_message__Link{
+  color: #325CEF;
+  text-decoration: none;
+  border-bottom: 1px solid #325CEF;
 }
 
 .chatWindow_bottomInput_container{
@@ -78,6 +92,7 @@
 
 
 .chatWindow_bottomInput_input{
+  outline: none;
   width: 407px;
   padding: 0;
   margin: 0;
@@ -89,4 +104,23 @@
 .chatWindow_bottomInput_send{
   width: 40px;
   height: 40px;
+}
+
+@media screen and (max-width: 390px) {
+  .bot_button{
+    border: none;
+    width: 67px;
+    height: 67px;
+    background-color: #D2AEF6;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .bot_icon{
+    width: 40px;
+    height: 40px;
+  }
 }

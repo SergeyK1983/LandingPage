@@ -21,16 +21,23 @@
   margin-bottom: 8px;
 }
 
+input::placeholder {
+  color: #B2B2B2;
+}
+
 .medium_input{
-  @include inputInForm(215px);
+  @include inputInForm(207px);
+  border: 2px solid transparent;
 }
 
 .small_input{
-  @include inputInForm(80px);
+  @include inputInForm(72px);
+  border: 2px solid transparent;
 }
 
 .large_input{
-  @include inputInForm(365px);
+  @include inputInForm(357px);
+  border: 2px solid transparent;
 }
 
 input::-webkit-outer-spin-button,
@@ -44,7 +51,7 @@ input::-webkit-inner-spin-button {
 }
 
 .form_button{
-  cursor: pointer;
+  cursor: not-allowed;
   margin-top: 15px;
   width: 425px;
   padding: 20px 30px;
@@ -52,4 +59,12 @@ input::-webkit-inner-spin-button {
   border: 2px solid #323843;
   background-color: #E2F497;
   @include textMontserrat(20px, 600, #323843);
+}
+
+.form_buttonActive{
+  cursor: pointer;
+}
+
+.errorInput{
+  border: 2px solid #FF9898;
 }

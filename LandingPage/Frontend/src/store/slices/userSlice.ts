@@ -3,11 +3,11 @@ import { IUserForm } from "../../types/userForm.ts";
 
 const initialState: IUserForm = {
     userName: "",
-    userAge: 0,
-    position: "",
-    positionAge: 0,
-    salary: 0,
-    contact: "",
+    userAge: "",
+    userProfession: "",
+    userExperience: "",
+    userSalary: "",
+    userContact: "",
 };
 
 const userSlice = createSlice({
@@ -17,10 +17,10 @@ const userSlice = createSlice({
         setUser(state, action: PayloadAction<IUserForm>) {
             state.userName = action.payload.userName;
             state.userAge = action.payload.userAge;
-            state.position = action.payload.position;
-            state.positionAge = action.payload.positionAge;
-            state.salary = action.payload.salary;
-            state.contact = action.payload.contact;
+            state.userProfession = action.payload.userProfession;
+            state.userExperience = action.payload.userExperience;
+            state.userSalary = action.payload.userSalary;
+            state.userContact = action.payload.userContact;
         },
     },
 });
