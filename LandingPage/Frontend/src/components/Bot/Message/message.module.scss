@@ -1,12 +1,50 @@
 @import "../../../styles/mixins";
 @import "../../../styles/colors";
 .message_container{
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 35px 35px 35px 0;
   background-color: $messageBackgroundColor;
+  border-radius: 35px 35px 35px 0;
+  margin-top: 20px;
+}
+
+.message_text{
+  padding: 20px;
+}
+
+.message_text__withImg{
+  margin-top: 10px;
+  padding: 0 20px 20px 20px;
+}
+
+.message_image{
+  border-radius: 35px 35px 0 0;
 }
 
 .message_container:last-of-type{
   margin-bottom: 10px;
+}
+
+.message_linkImage_container{
+  height: 91px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.message_linkImage_description{
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.message_linkImage_link{
+  text-decoration: none;
+  @include textMontserrat(16px,400,#948989)
+}
+
+.message_linkImage_text{
+  @include textMontserrat(16px,400,#000000)
+}
+
+.message_linkImage_text_strong{
+  @include textMontserrat(16px,600,#000000)
 }

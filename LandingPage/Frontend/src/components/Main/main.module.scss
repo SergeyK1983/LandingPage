@@ -10,15 +10,40 @@
 
 .main_container{
   position: relative;
-  height: 848px;
-  width: 1440px;
+  height: 748px;
+  width: 1310px;
   background-color: #DEDEDE;
   display: flex;
+  justify-content: space-between;
+  padding-top: 100px;
+  padding-left: 130px;
+}
+
+.bot_container{
+  width: 605px;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+}
+
+.bot_container_position{
+  position: relative;
+}
+
+.bot_container_chat{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.bot_container_icon{
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .main_container__info{
-  margin-top: 230px;
-  margin-left: 130px;
+  margin-top: 20px;
 }
 
 .info_greetings{
@@ -26,30 +51,71 @@
   text-transform: uppercase;
 }
 
-.info_ul{
-
-}
-
 .info_li{
   @include textMontserrat(18px, 400, #000000);
 }
 
+.info_li_client{
+  width: 490px;
+}
+
 .main_image_container{
-  margin-top: 100px;
-  margin-left: 20px;
-  width: 558px;
-  height: 453px;
+  margin-right: 88.53px;
+  width: 588.467px;
+  height: 452.667px;
 }
 
-.bot_container{
-  position: absolute;
-  right: 86px;
-  bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
+@media screen and (max-width: 390px) {
+  .main_container{
+    position: relative;
+    height: 670px;
+    width: 390px;
+    background-color: #DEDEDE;
+    padding-top: 20px;
+    padding-left: 20px;
+    flex-direction: column;
+    justify-content: normal;
+  }
 
-.bot_chatWindow_container{
+  .main_container__info{
+    margin-top: 20px;
+  }
+
+  .info_greetings{
+    @include textUbuntu(28px, 700, #000000);
+    text-transform: uppercase;
+  }
+
+  .main_image_container{
+    margin-top: 4px;
+    margin-right: 28.77px;
+    width: 332.802px;
+    height: 256.001px;
+  }
+
+  .bot_container{
+    width: 605px;
+    position: absolute;
+    right: 20px;
+    bottom: 25px;
+  }
+
+  .bot_container_icon{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .info_li{
+    @include textMontserrat(18px, 400, #000000);
+  }
+
+  .info_ul{
+    margin-top: 20px;
+  }
+
+  .info_li_client{
+    width: 300px;
+  }
 
 }

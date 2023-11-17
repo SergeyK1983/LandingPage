@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import IStartMessage from "../../types/startMessageTypes.ts";
 
 const initialState: IStartMessage = {
-    visible: true,
+    visible: false,
     title: "Хотите узнать, насколько ценно ваше время? Давайте рассчитаем, сколько вы получаете в час!",
 };
 
@@ -10,13 +10,15 @@ const startMessageSlice = createSlice({
     name: "start_message",
     initialState,
     reducers: {
-        hide: (state) => {
+        hideStartMessage: (state) => {
             state.visible = false;
+        },
+        showStartMessage: (state) => {
+            state.visible = true;
         },
     },
 });
 
-//Экшены
-export const { hide } = startMessageSlice.actions;
+export const { hideStartMessage, showStartMessage } = startMessageSlice.actions;
 
 export default startMessageSlice.reducer;
