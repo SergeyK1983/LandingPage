@@ -1,12 +1,18 @@
 import { FunctionComponent, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import style from "./header.module.scss";
+import logo from "../../assets/logo.svg";
 const Header: FunctionComponent = (): ReactElement => {
     return (
         <>
             <header className={style.header}>
                 <div className={style.header_container}>
                     <div className={style.header_container__logo}>
+                        <img
+                            src={logo}
+                            alt={"логотип"}
+                            className={style.header_logo}
+                        />
                         <Link to={"/"} className={style.nav_link}>
                             Дизориентация
                         </Link>

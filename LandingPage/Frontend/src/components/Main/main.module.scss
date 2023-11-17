@@ -10,9 +10,9 @@
 
 .main_container{
   position: relative;
-  height: calc(100vh - 315px - 94px);
+  height: 848px;
   width: 1440px;
-  background-color: antiquewhite;
+  background-color: #DEDEDE;
   display: flex;
 }
 
@@ -35,16 +35,21 @@
 }
 
 .main_image_container{
-  margin-top: 95px;
+  margin-top: 100px;
   margin-left: 20px;
-  width: 580px;
-  height: 634px;
-  border-radius: 25px;
-  background-color: #E7E7E7;
+  width: 558px;
+  height: 453px;
 }
 
 .bot_container{
   position: absolute;
   right: 86px;
   bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.bot_chatWindow_container{
+
 }

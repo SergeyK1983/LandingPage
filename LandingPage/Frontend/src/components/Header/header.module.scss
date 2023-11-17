@@ -2,7 +2,7 @@
 @import "../../styles/colors";
 
 .header{
-  height: 94px;
+  height: 122px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,9 +18,17 @@
 
 .header_container__logo{
   margin-left: 130px;
+  display: flex;
+  align-items: center;
+}
+
+.header_logo{
+  margin-right: 14px;
 }
 
 .header_container__nav{
+  display: flex;
+  align-items: center;
   margin-right: 60px;
   margin-left: 23px;
 }
