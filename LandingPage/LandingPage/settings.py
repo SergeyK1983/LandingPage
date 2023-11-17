@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',  # Для простых страничек
 
     'landing.apps.LandingConfig',
+
+    'rest_framework',
 ]
 
 SITE_ID = 1
@@ -64,7 +66,7 @@ ROOT_URLCONF = 'LandingPage.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'Frontend')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,9 +126,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'  # 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'  # 'UTC'
 
 USE_I18N = True
 

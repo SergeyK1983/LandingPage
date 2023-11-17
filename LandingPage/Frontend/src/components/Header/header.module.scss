@@ -2,7 +2,6 @@
 @import "../../styles/colors";
 
 .header{
-  height: 94px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,21 +11,90 @@
 
 .header_container{
   width: 1440px;
+  height: 122px;
+}
+
+.header_elements{
+  padding: 29px 129px;
   display: flex;
   justify-content: space-between;
 }
 
 .header_container__logo{
-  margin-left: 130px;
+  display: flex;
+  align-items: center;
+}
+
+.header_logo{
+  margin-right: 14px;
 }
 
 .header_container__nav{
-  margin-right: 60px;
-  margin-left: 23px;
+  display: flex;
+  align-items: center;
+}
+
+.nav_link_logo{
+  @include textMontserrat(18px, 400, #000000);
+  @include linkReset();
 }
 
 .nav_link{
   @include textMontserrat(18px, 400, #000000);
   @include linkReset();
+}
+
+.nav_link:nth-of-type(-n + 3){
   margin-right: 40px;
+}
+
+.burger_menu{
+  display: none;
+}
+
+@media screen and (max-width: 390px) {
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: $layoutBackgroundColor;
+  }
+
+  .header_container{
+    width: 390px;
+    height: 122px;
+  }
+
+  .header_elements{
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header_container__logo{
+    display: flex;
+    align-items: center;
+  }
+
+  .header_logo{
+    margin-right: 13px;
+  }
+
+  .header_container__nav{
+    display: none;
+  }
+
+  .nav_link_logo{
+    @include textMontserrat(18px, 400, #000000);
+    @include linkReset();
+  }
+
+  .burger_menu{
+    display: flex;
+  }
+
+  .burger_menu_icon{
+    cursor: pointer;
+  }
 }

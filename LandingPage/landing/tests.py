@@ -4,6 +4,8 @@ from rest_framework import status
 from django.urls import reverse
 from .models import User
 
+
+
 class UserAPITest(APITestCase):
     def setUp(self):
         self.user_data = {
@@ -22,4 +24,3 @@ class UserAPITest(APITestCase):
         self.assertEqual(User.objects.count(), 1)
         self.assertEqual(User.objects.get().full_name, 'Jane Doe')
         self.assertEqual(User.objects.get().hourly_salary, 5.68)
-

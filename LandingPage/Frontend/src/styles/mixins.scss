@@ -22,3 +22,15 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+
+@mixin inputInForm($width){
+  padding: 20px 30px;
+  border-radius: 9.97px;
+  background: #FFFFFF;
+  border: none;
+  width: $width;
+  @include textMontserrat(16px, 400, #323843);
+  margin-bottom: 15px;
+  outline:none;
+}
