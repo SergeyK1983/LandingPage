@@ -2,12 +2,9 @@ import { FunctionComponent, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import style from "./header.module.scss";
 import logo from "../../assets/logo.svg";
-import mobileBurgerMenuIcon from "../../assets/mobileBurgerMenuIcon.svg";
-import { useDispatch } from "react-redux";
-import { toggleBurger } from "../../store/slices/burgerMenuSlice.ts";
+import BurgerMenuIcon from "../BurgerMenu/BurgerMenuIcon.tsx";
 
 const Header: FunctionComponent = (): ReactElement => {
-    const dispatch = useDispatch();
     return (
         <>
             <header className={style.header}>
@@ -30,7 +27,7 @@ const Header: FunctionComponent = (): ReactElement => {
                         </div>
                         <div className={style.header_container__nav}>
                             <Link
-                                to={"https://dezorientaciya.ru/buisnes/"}
+                                to={"https://dezorientaciya.ru/"}
                                 className={style.nav_link}
                             >
                                 О нас
@@ -55,14 +52,7 @@ const Header: FunctionComponent = (): ReactElement => {
                             </Link>
                         </div>
                         <div className={style.burger_menu}>
-                            <img
-                                src={mobileBurgerMenuIcon}
-                                alt={"Меню"}
-                                className={style.burger_menu_icon}
-                                onClick={() => {
-                                    dispatch(toggleBurger());
-                                }}
-                            />
+                            <BurgerMenuIcon/>
                         </div>
                     </div>
                 </div>

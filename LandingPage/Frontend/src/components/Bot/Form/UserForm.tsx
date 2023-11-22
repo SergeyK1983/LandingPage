@@ -1,11 +1,11 @@
 import { FunctionComponent, ReactElement } from "react";
 import style from "./form.module.scss";
 import { setUser } from "../../../store/slices/userSlice.ts";
-import { useDispatch } from "react-redux";
 import { IUserForm } from "../../../types/userForm.ts";
 import { SubmitHandler, useForm } from "react-hook-form";
 import classNames from "classnames";
 import { sendSecondMessage } from "../../../store/slices/chatBotSlice.ts";
+import { useAppDispatch, useAppSelector } from "../../../types/hooks.ts";
 
 const UserForm: FunctionComponent = (): ReactElement => {
     const {
@@ -16,11 +16,11 @@ const UserForm: FunctionComponent = (): ReactElement => {
     } = useForm<IUserForm>({
         mode: "onBlur",
     });
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const onSubmit: SubmitHandler<IUserForm> = (data) => {
-        console.log(JSON.stringify(data));
-        reset();
+    const formInfo = useAppSelector((state) => state.userInfo);
+
+    const onSubmit: SubmitHandler<IUserForm> = async (data) => {
         dispatch(
             setUser({
                 userName: data.userName,
@@ -32,17 +32,20 @@ const UserForm: FunctionComponent = (): ReactElement => {
             } as IUserForm),
         );
 
-        dispatch(sendSecondMessage());
-
-        fetch("/api/users/", {
+        let response = await fetch("/api/users/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": "true",
             },
             body: JSON.stringify(data),
-        })
-            .then((responce) => console.log(responce))
-            .catch((error) => console.log(error));
+        });
+
+        console.log(response.body);
+        console.log(formInfo);
+        reset();
+        dispatch(sendSecondMessage());
     };
 
     return (
@@ -76,6 +79,7 @@ const UserForm: FunctionComponent = (): ReactElement => {
                         {...register("userAge", {
                             required: true,
                             minLength: 2,
+                            valueAsNumber: true,
                         })}
                     />
                 </div>
@@ -104,6 +108,7 @@ const UserForm: FunctionComponent = (): ReactElement => {
                         {...register("userExperience", {
                             required: true,
                             minLength: 1,
+                            valueAsNumber: true,
                         })}
                     />
                 </div>
@@ -120,6 +125,7 @@ const UserForm: FunctionComponent = (): ReactElement => {
                         {...register("userSalary", {
                             required: true,
                             minLength: 1,
+                            valueAsNumber: true,
                         })}
                     />
                 </div>

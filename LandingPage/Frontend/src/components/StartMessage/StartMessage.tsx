@@ -8,21 +8,18 @@ const StartMessage: FunctionComponent = (): ReactElement => {
         (state: RootState) => state.startMessage.title,
     );
 
-    const startMessageVisibility = useAppSelector(
-        (state) => state.startMessage.visible,
-    );
+    const chatOpen = useAppSelector((state) => state.chatBot.open);
 
     return (
         <>
-            <div
+            {!chatOpen && <div
                 className={style.startMessage_container}
                 id={"start_message"}
-                style={{ display: startMessageVisibility ? "flex" : "none" }}
             >
                 <div className={style.startMessage_position}>
                     <span className={style.startMessage_title}>{message}</span>
                 </div>
-            </div>
+            </div>}
         </>
     );
 };

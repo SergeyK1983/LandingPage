@@ -3,6 +3,7 @@ import React, {
     ReactElement,
     useEffect,
     useRef,
+    useState,
 } from "react";
 import styles from "./bot.module.scss";
 import quit from "../../assets/quitChat.svg";
@@ -22,10 +23,12 @@ import { useAppSelector } from "../../types/hooks.ts";
 
 interface ChatWindowProps {
     chatOpen: boolean;
+    typeOfDevice: "mobile" | "desktop" | "tablet";
 }
 
 const ChatWindow: FunctionComponent<ChatWindowProps> = ({
     chatOpen,
+    typeOfDevice,
 }): ReactElement => {
     const dispatch = useDispatch();
     const chatWindowRef = useRef<HTMLDivElement>(null);
@@ -58,6 +61,14 @@ const ChatWindow: FunctionComponent<ChatWindowProps> = ({
         chatWindowRef.current!.scrollTop = chatWindowRef.current!.scrollHeight;
     }, [formMessage, resultMessage, consultationMessage]);
 
+    const [userSalary, setUserSalary] = useState("");
+
+    useEffect(() => {
+        fetch("/api/users/salary")
+            .then((response) => response.json())
+            .then((data) => setUserSalary(data.hourly_salary));
+    }, [resultMessage]);
+
     return (
         <>
             <div className={styles.chatWindow}>
@@ -65,12 +76,23 @@ const ChatWindow: FunctionComponent<ChatWindowProps> = ({
                     <span className={styles.chatWindow_title}>
                         Чат-помощник
                     </span>
-                    <img
-                        onClick={handleClick}
-                        src={quit}
-                        alt={"Закрыть чат"}
-                        className={styles.chatWindow_quit}
-                    />
+                    {typeOfDevice === "desktop" ? (
+                        <img
+                            onClick={handleClick}
+                            src={quit}
+                            alt={"Закрыть чат"}
+                            className={styles.chatWindow_quit}
+                        />
+                    ) : (
+                        <Link to={"/"}>
+                            <img
+                                src={quit}
+                                alt={"Закрыть чат"}
+                                className={styles.chatWindow_quit}
+                                onClick={handleClick}
+                            />
+                        </Link>
+                    )}
                 </div>
                 <div
                     className={styles.chatWindow_messages_container}
@@ -92,7 +114,8 @@ const ChatWindow: FunctionComponent<ChatWindowProps> = ({
                     {resultMessage && (
                         <Message src={ResultImage}>
                             <span className={styles.chatWindow_message__text}>
-                                Ваш час стоит <strong>{398}</strong> рублей.
+                                Ваш час стоит <strong>{userSalary}</strong>{" "}
+                                рублей.
                                 <br /> С таким опытом, вы можете рассчитывать на
                                 более высокий уровень дохода
                             </span>

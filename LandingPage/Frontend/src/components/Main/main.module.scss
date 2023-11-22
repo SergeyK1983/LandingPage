@@ -19,27 +19,22 @@
   padding-left: 130px;
 }
 
-.bot_container{
-  width: 605px;
+.startMessage_container{
   position: absolute;
-  right: 50px;
+  bottom: 130px;
+  right: 130px;
+}
+
+.chatWindow_container{
+  position: absolute;
   bottom: 50px;
+  right: 140px;
 }
 
-.bot_container_position{
-  position: relative;
-}
-
-.bot_container_chat{
+.botIcon_container{
   position: absolute;
-  left: 0;
-  bottom: 0;
-}
-
-.bot_container_icon{
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  bottom: 50px;
+  right: 50px;
 }
 
 .main_container__info{
@@ -63,6 +58,14 @@
   margin-right: 88.53px;
   width: 588.467px;
   height: 452.667px;
+}
+
+.chatWindow_container_mobile{
+  display: none;
+}
+
+.botIcon_container_mobile{
+  display: none;
 }
 
 @media screen and (max-width: 390px) {
@@ -93,19 +96,6 @@
     height: 256.001px;
   }
 
-  .bot_container{
-    width: 605px;
-    position: absolute;
-    right: 20px;
-    bottom: 25px;
-  }
-
-  .bot_container_icon{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-
   .info_li{
     @include textMontserrat(18px, 400, #000000);
   }
@@ -118,4 +108,24 @@
     width: 300px;
   }
 
+  .burger{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .chatWindow_container{
+    display: none;
+  }
+
+  .botIcon_container{
+    display: none;
+  }
+
+  .botIcon_container_mobile{
+    display: flex;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+  }
 }

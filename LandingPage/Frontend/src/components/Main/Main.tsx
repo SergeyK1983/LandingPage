@@ -1,47 +1,49 @@
-import { FunctionComponent, ReactElement, useEffect, useState } from "react";
+import { FunctionComponent, ReactElement, useEffect } from "react";
 import style from "./main.module.scss";
 import chatBotImage from "../../assets/chatBotImage.svg";
 import BotIcon from "../Bot/BotIcon.tsx";
 import StartMessage from "../StartMessage/StartMessage.tsx";
-import { useAppSelector } from "../../types/hooks.ts";
+import { useAppDispatch, useAppSelector } from "../../types/hooks.ts";
 import ChatWindow from "../Bot/ChatWindow.tsx";
-import { useDispatch } from "react-redux";
-import { showStartMessage } from "../../store/slices/startMessageSlice.ts";
-import BurgerMenu from "../BurgerMenu/BurgerMenu.tsx";
 import classNames from "classnames";
+import { toggleStartMessageRender } from "../../store/slices/startMessageSlice.ts";
+import BurgerMenu from "../BurgerMenu/BurgerMenu.tsx";
+import Footer from "../Footer/Footer.tsx";
+import Header from "../Header/Header.tsx";
 
 const Main: FunctionComponent = (): ReactElement => {
-    const dispatch = useDispatch();
-
-    const startMessageVisibility = useAppSelector(
-        (state) => state.startMessage.visible,
-    );
-
-    const burgerState = useAppSelector((state) => state.burgerMenu.openBurger);
+    const dispatch2 = useAppDispatch();
 
     const chatOpen = useAppSelector((state) => state.chatBot.open);
 
-    const [open, setOpen] = useState(true);
+    const startMessageVisible = useAppSelector(
+        (state) => state.startMessage.visible,
+    );
+
+    const burgerMenuState = useAppSelector(
+        (state) => state.burgerMenu.openBurger,
+    );
 
     useEffect(() => {
-        if (chatOpen) return;
-        if (!open) return;
-        const show = setTimeout(() => {
-            if (!chatOpen) {
-                dispatch(showStartMessage());
-                setOpen(false);
+        const timer = setTimeout(() => {
+            if (!startMessageVisible) {
+                dispatch2(toggleStartMessageRender());
             }
-        }, 5000);
-        return () => {
-            clearInterval(show);
-        };
-    }, [open, chatOpen]);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <>
+            <Header />
             <main className={style.main}>
                 <div className={style.main_container}>
-                    {burgerState && <BurgerMenu />}
+                    {burgerMenuState && (
+                        <div className={style.burger}>
+                            <BurgerMenu />
+                        </div>
+                    )}
                     <div className={style.main_container__info}>
                         <span className={style.info_greetings}>
                             привет, я ваш
@@ -73,19 +75,26 @@ const Main: FunctionComponent = (): ReactElement => {
                         src={chatBotImage}
                         className={style.main_image_container}
                     />
-                    <div className={style.bot_container}>
-                        <div className={style.bot_container_position}>
-                            <div className={style.bot_container_chat}>
-                                {startMessageVisibility && <StartMessage />}
-                                {chatOpen && <ChatWindow chatOpen={chatOpen} />}
-                            </div>
-                            <div className={style.bot_container_icon}>
-                                <BotIcon />
-                            </div>
-                        </div>
+                    <div className={style.startMessage_container}>
+                        {startMessageVisible && <StartMessage />}
+                    </div>
+                    <div className={style.chatWindow_container}>
+                        {chatOpen && (
+                            <ChatWindow
+                                typeOfDevice={"desktop"}
+                                chatOpen={chatOpen}
+                            />
+                        )}
+                    </div>
+                    <div className={style.botIcon_container}>
+                        <BotIcon typeOfDevice={"desktop"} />
+                    </div>
+                    <div className={style.botIcon_container_mobile}>
+                        <BotIcon typeOfDevice={"mobile"} />
                     </div>
                 </div>
             </main>
+            <Footer />
         </>
     );
 };

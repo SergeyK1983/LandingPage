@@ -3,10 +3,10 @@ import { IUserForm } from "../../types/userForm.ts";
 
 const initialState: IUserForm = {
     userName: "",
-    userAge: "",
+    userAge: 0,
     userProfession: "",
-    userExperience: "",
-    userSalary: "",
+    userExperience: 0,
+    userSalary: 0,
     userContact: "",
 };
 

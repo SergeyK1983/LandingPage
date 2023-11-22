@@ -1,8 +1,8 @@
 export interface IUserForm {
     userName: string;
-    userAge: string;
+    userAge: number;
     userProfession: string;
-    userExperience: string;
-    userSalary: string;
+    userExperience: number;
+    userSalary: number;
     userContact: string;
 }
