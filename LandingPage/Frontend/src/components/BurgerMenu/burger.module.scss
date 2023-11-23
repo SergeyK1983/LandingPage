@@ -1,0 +1,83 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+
+@media screen and (max-width: 390px) {
+
+  .burger_container{
+    width: 100vw;
+    background: #FFFFFF;
+    transition: 0.2s;
+  }
+
+  .burger_content{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .burger_content_container{
+    border-bottom: 1px solid #F1F1FA;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+
+  .burger_button{
+    background-color: transparent;
+    border:none;
+  }
+
+  .burger_img{
+    width: 40px;
+    height: 40px;
+  }
+
+  .burger_link{
+    @include textMontserrat(18px,600,#323843);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .services_container{
+    display: flex;
+    align-items: center;
+  }
+
+  .services_text{
+    @include textMontserrat(18px,600,#323843);
+  }
+
+  .services_button{
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-left: 15px;
+  }
+
+  .services_img{
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s linear;
+  }
+
+  .services_img__open{
+    transform: rotate(180deg);
+  }
+
+  .services_content_container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .services_link{
+    @include textMontserrat(16px,400,#505661);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .services_content_container__link{
+    margin-top: 20px;
+  }
+}

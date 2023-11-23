@@ -1,0 +1,37 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.startMessage_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 525px;
+  height: 90px;
+  border-radius: 35px 35px 0 35px;
+  background-color: $startMessageBackgroundColor;
+}
+
+.startMessage_position{
+  padding: 20px 30px;
+}
+
+.startMessage_title{
+  @include textMontserrat(18px, 400, #000000)
+}
+
+@media screen and (max-width: 390px) {
+  .startMessage_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 313px;
+    height: 140px;
+    border-radius: 35px 35px 0 35px;
+    background-color: $startMessageBackgroundColor;
+    margin-bottom: 80px;
+  }
+
+  .startMessage_position{
+    padding: 20px 20px 20px 30px;
+  }
+}
