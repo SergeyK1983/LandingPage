@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUserForm } from "../../types/userForm.ts";
+import { IUserForm } from "../../types/chatBotTypes.ts";
 
 const initialState: IUserForm = {
     userName: "",
-    userAge: "",
+    userAge: 0,
     userProfession: "",
-    userExperience: "",
-    userSalary: "",
+    userExperience: 0,
+    userSalary: 0,
     userContact: "",
 };
 

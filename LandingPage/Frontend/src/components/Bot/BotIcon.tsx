@@ -1,23 +1,43 @@
 import React, { FunctionComponent, ReactElement } from "react";
 import botIcon from "../../assets/message.svg";
 import style from "./bot.module.scss";
-import { useDispatch } from "react-redux";
+import { shouldStartMessageShow } from "../../store/slices/startMessageSlice.ts";
 import { setOpen } from "../../store/slices/chatBotSlice.ts";
-import { hideStartMessage } from "../../store/slices/startMessageSlice.ts";
+import { Link } from "react-router-dom";
+import { BotIconProps } from "../../types/chatBotTypes.ts";
+import { useAppDispatch } from "../../types/hooks.ts";
 
-const BotIcon: FunctionComponent = (): ReactElement => {
-    const dispatch = useDispatch();
+const BotIcon: FunctionComponent<BotIconProps> = ({
+    typeOfDevice,
+}): ReactElement => {
+    const dispatch = useAppDispatch();
 
-    const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+    const handleClick: React.MouseEventHandler = () => {
+        dispatch(shouldStartMessageShow());
         dispatch(setOpen());
-        dispatch(hideStartMessage());
     };
 
     return (
         <>
-            <button className={style.bot_button} onClick={handleClick}>
-                <img alt={"Чат бот"} src={botIcon} className={style.bot_icon} />
-            </button>
+            {typeOfDevice === "desktop" ? (
+                <button className={style.bot_button} onClick={handleClick}>
+                    <img
+                        alt={"Чат бот"}
+                        src={botIcon}
+                        className={style.bot_icon}
+                    />
+                </button>
+            ) : (
+                <button className={style.bot_button} onClick={handleClick}>
+                    <Link to={"/chatMobile"}>
+                        <img
+                            alt={"Чат бот"}
+                            src={botIcon}
+                            className={style.bot_icon}
+                        />
+                    </Link>
+                </button>
+            )}
         </>
     );
 };
