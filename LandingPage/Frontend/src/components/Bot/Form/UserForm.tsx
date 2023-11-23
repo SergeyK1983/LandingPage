@@ -1,11 +1,11 @@
 import { FunctionComponent, ReactElement } from "react";
 import style from "./form.module.scss";
 import { setUser } from "../../../store/slices/userSlice.ts";
-import { IUserForm } from "../../../types/userForm.ts";
 import { SubmitHandler, useForm } from "react-hook-form";
 import classNames from "classnames";
 import { sendSecondMessage } from "../../../store/slices/chatBotSlice.ts";
 import { useAppDispatch, useAppSelector } from "../../../types/hooks.ts";
+import { IUserForm } from "../../../types/chatBotTypes.ts";
 
 const UserForm: FunctionComponent = (): ReactElement => {
     const {
@@ -32,7 +32,7 @@ const UserForm: FunctionComponent = (): ReactElement => {
             } as IUserForm),
         );
 
-        fetch("/api/users/", {
+        await fetch("/api/users/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
@@ -43,6 +43,7 @@ const UserForm: FunctionComponent = (): ReactElement => {
         });
 
         reset();
+
         dispatch(sendSecondMessage());
     };
 

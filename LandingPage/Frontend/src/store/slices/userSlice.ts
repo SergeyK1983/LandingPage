@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUserForm } from "../../types/userForm.ts";
+import { IUserForm } from "../../types/chatBotTypes.ts";
 
 const initialState: IUserForm = {
     userName: "",
