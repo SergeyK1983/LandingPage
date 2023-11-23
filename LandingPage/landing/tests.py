@@ -5,6 +5,7 @@ from django.urls import reverse
 from .models import User
 
 
+
 class UserAPITest(APITestCase):
     def setUp(self):
         self.user_data = {
