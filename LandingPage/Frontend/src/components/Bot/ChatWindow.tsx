@@ -50,7 +50,7 @@ const ChatWindow: FunctionComponent<ChatWindowProps> = ({
     );
 
     if (resultMessage === true) {
-        fetch("/api/users/salary")
+        fetch("http://localhost:8000/api/users/salary")
             .then((response) => response.json())
             .then((data) => setUserSalary(data.hourly_salary));
 

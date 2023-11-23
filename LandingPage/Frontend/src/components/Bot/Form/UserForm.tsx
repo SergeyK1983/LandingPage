@@ -32,7 +32,7 @@ const UserForm: FunctionComponent = (): ReactElement => {
             } as IUserForm),
         );
 
-        await fetch("/api/users/", {
+        await fetch("http://localhost:8000/api/users/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
