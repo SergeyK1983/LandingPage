@@ -32,7 +32,7 @@ const UserForm: FunctionComponent = (): ReactElement => {
             } as IUserForm),
         );
 
-        let response = await fetch("/api/users/", {
+        fetch("/api/users/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
@@ -42,8 +42,6 @@ const UserForm: FunctionComponent = (): ReactElement => {
             body: JSON.stringify(data),
         });
 
-        console.log(response.body);
-        console.log(formInfo);
         reset();
         dispatch(sendSecondMessage());
     };

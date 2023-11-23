@@ -1,19 +1,16 @@
 import React, { FunctionComponent, ReactElement } from "react";
 import botIcon from "../../assets/message.svg";
 import style from "./bot.module.scss";
-import { useDispatch } from "react-redux";
 import { shouldStartMessageShow } from "../../store/slices/startMessageSlice.ts";
 import { setOpen } from "../../store/slices/chatBotSlice.ts";
 import { Link } from "react-router-dom";
-
-export interface BotIconProps {
-    typeOfDevice: "mobile" | "desktop" | "tablet";
-}
+import { BotIconProps } from "../../types/chatBotTypes.ts";
+import { useAppDispatch } from "../../types/hooks.ts";
 
 const BotIcon: FunctionComponent<BotIconProps> = ({
     typeOfDevice,
 }): ReactElement => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const handleClick: React.MouseEventHandler = () => {
         dispatch(shouldStartMessageShow());

@@ -2,13 +2,12 @@ import { FunctionComponent, ReactElement } from "react";
 import style from "./burger.module.scss";
 import { Link } from "react-router-dom";
 import icon from "../../assets/burger_menu_services_icon.svg";
-import { useDispatch } from "react-redux";
-import { useAppSelector } from "../../types/hooks.ts";
+import { useAppDispatch, useAppSelector } from "../../types/hooks.ts";
 import { openServices } from "../../store/slices/burgerMenuSlice.ts";
 import classNames from "classnames";
 
 const BurgerMenu: FunctionComponent = (): ReactElement => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const isServicesOpen = useAppSelector(
         (state) => state.burgerMenu.openServices,

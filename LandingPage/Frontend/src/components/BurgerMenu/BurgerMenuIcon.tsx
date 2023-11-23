@@ -1,19 +1,18 @@
-import burgerIcon from "../../assets/mobileBurgerMenuIcon.svg"
+import burgerIcon from "../../assets/mobileBurgerMenuIcon.svg";
 import style from "./burger.module.scss";
-import {useDispatch} from "react-redux";
-import {openMenu} from "../../store/slices/burgerMenuSlice.ts";
+import { openMenu } from "../../store/slices/burgerMenuSlice.ts";
+import { useAppDispatch } from "../../types/hooks.ts";
 
 const BurgerMenuIcon = () => {
-
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch();
 
     const handleClick = () => {
-        dispatch(openMenu())
-    }
+        dispatch(openMenu());
+    };
 
     return (
         <button className={style.burger_button} onClick={handleClick}>
-            <img src={burgerIcon} alt={"меню"} className={style.burger_img}/>
+            <img src={burgerIcon} alt={"меню"} className={style.burger_img} />
         </button>
     );
 };

@@ -13,24 +13,22 @@ import UserForm from "./Form/UserForm.tsx";
 import ResultImage from "../../assets/ResultImage.svg";
 import { Link } from "react-router-dom";
 import linkImage from "../../assets/linkImage.svg";
-import { useDispatch } from "react-redux";
 import {
     sendFirstMessage,
     sendThirdMessage,
     setOpen,
 } from "../../store/slices/chatBotSlice.ts";
-import { useAppSelector } from "../../types/hooks.ts";
-
-interface ChatWindowProps {
-    chatOpen: boolean;
-    typeOfDevice: "mobile" | "desktop" | "tablet";
-}
+import { useAppDispatch, useAppSelector } from "../../types/hooks.ts";
+import { ChatWindowProps } from "../../types/chatBotTypes.ts";
 
 const ChatWindow: FunctionComponent<ChatWindowProps> = ({
     chatOpen,
     typeOfDevice,
 }): ReactElement => {
-    const dispatch = useDispatch();
+    const [userSalary, setUserSalary] = useState("");
+
+    const dispatch = useAppDispatch();
+
     const chatWindowRef = useRef<HTMLDivElement>(null);
 
     const handleClick: React.MouseEventHandler<HTMLImageElement> = () => {
@@ -52,6 +50,10 @@ const ChatWindow: FunctionComponent<ChatWindowProps> = ({
     );
 
     if (resultMessage === true) {
+        fetch("/api/users/salary")
+            .then((response) => response.json())
+            .then((data) => setUserSalary(data.hourly_salary));
+
         setTimeout(() => {
             dispatch(sendThirdMessage());
         }, 2000);
@@ -60,14 +62,6 @@ const ChatWindow: FunctionComponent<ChatWindowProps> = ({
     useEffect(() => {
         chatWindowRef.current!.scrollTop = chatWindowRef.current!.scrollHeight;
     }, [formMessage, resultMessage, consultationMessage]);
-
-    const [userSalary, setUserSalary] = useState("");
-
-    useEffect(() => {
-        fetch("/api/users/salary")
-            .then((response) => response.json())
-            .then((data) => setUserSalary(data.hourly_salary));
-    }, [resultMessage]);
 
     return (
         <>

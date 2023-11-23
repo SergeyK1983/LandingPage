@@ -12,7 +12,7 @@ import Footer from "../Footer/Footer.tsx";
 import Header from "../Header/Header.tsx";
 
 const Main: FunctionComponent = (): ReactElement => {
-    const dispatch2 = useAppDispatch();
+    const dispatch = useAppDispatch();
 
     const chatOpen = useAppSelector((state) => state.chatBot.open);
 
@@ -25,10 +25,10 @@ const Main: FunctionComponent = (): ReactElement => {
     );
 
     useEffect(() => {
+        if (startMessageVisible) return;
+
         const timer = setTimeout(() => {
-            if (!startMessageVisible) {
-                dispatch2(toggleStartMessageRender());
-            }
+            dispatch(toggleStartMessageRender());
         }, 1000);
 
         return () => clearTimeout(timer);

@@ -1,14 +1,8 @@
 import { FunctionComponent, ReactElement } from "react";
 import style from "./message.module.scss";
 import { Link } from "react-router-dom";
-interface IMessageProps {
-    children: ReactElement;
-    src?: string;
-    linkImage?: string;
-    linkSrc?: string;
-    linkService?: string;
-    linkDescription?: string;
-}
+import { IMessageProps } from "../../../types/chatBotTypes.ts";
+
 const Message: FunctionComponent<IMessageProps> = ({
     children,
     src,
