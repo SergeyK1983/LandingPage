@@ -25,7 +25,7 @@ class User(models.Model):
         working_days_per_month = 22
         hours_per_day = 8
 
-        hourly_salary = round(self.monthly_income / (working_days_per_month * hours_per_day))
+        hourly_salary = round(self.monthly_income / (working_days_per_month * hours_per_day), 2)
 
         return hourly_salary
 

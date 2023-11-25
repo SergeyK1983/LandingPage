@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv, dotenv_values
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -110,14 +111,16 @@ WSGI_APPLICATION = 'LandingPage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+config_db = dotenv_values(dotenv_path=os.path.join(BASE_DIR, 'LandingPage/.env.pgdb'))
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pgdb',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '5438'
+        'NAME': config_db.get('NAME'),
+        'USER': config_db.get('USER'),
+        'PASSWORD': config_db.get('PASSWORD'),
+        'HOST': config_db.get('HOST'),
+        'PORT': config_db.get('PORT')
     }
 }
 
