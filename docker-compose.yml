@@ -1,7 +1,6 @@
 version: '3.3'
 
 services:
-
   pgdb:
     container_name: pgdb
     image: postgres:15.4-alpine
@@ -14,3 +13,12 @@ services:
       - ./LandingPage/pgdata:/var/lib/postgresql/data
     ports:
       - "5438:5432"
+
+  Backend:
+    container_name: Backend
+    build: ./LandingPage/
+    command: python manage.py runserver 8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - pgdb
