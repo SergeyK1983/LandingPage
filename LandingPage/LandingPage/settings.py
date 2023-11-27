@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-&*)y_#a6%-x%p(^kmw&0+gjl@e@u*ii&s55z1u@nw&e0*=sypg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -111,16 +111,17 @@ WSGI_APPLICATION = 'LandingPage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-config_db = dotenv_values(dotenv_path=os.path.join(BASE_DIR, 'LandingPage/.env.pgdb'))
+# config_db = dotenv_values(dotenv_path=os.path.join(BASE_DIR, 'LandingPage/.env.pgdb'))
+load_dotenv(dotenv_path=os.path.join(BASE_DIR, 'LandingPage/.env.pgdb'))
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config_db.get('NAME'),
-        'USER': config_db.get('USER'),
-        'PASSWORD': config_db.get('PASSWORD'),
-        'HOST': config_db.get('HOST'),
-        'PORT': config_db.get('PORT')
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('HOST', 'localhost'),
+        'PORT': os.getenv('PORT', '5438')
     }
 }
 
