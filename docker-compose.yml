@@ -29,7 +29,6 @@ services:
       - "8000:8000"
     depends_on:
       - pgdb
-    # entrypoint: "./wait-for-it pgdb:5438"
 
 #  frontend:
 #    container_name: frontend
