@@ -1,0 +1,44 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.help{
+  width: 1440px;
+  height: 564px;
+  background-color: $helpBackgroundColor;
+  position: relative;
+}
+
+.help_container{
+  padding: 119px 161px 124px 160px;
+  display: flex;
+}
+
+.help_container__title{
+  @include textUbuntu(30px, 500, #323843);
+  line-height: 130%;
+  text-transform: uppercase;
+}
+
+.help_container__infoText{
+  @include textMontserrat(18px, 400, #323843);
+  line-height: 140%;
+  margin-left: 10px;
+}
+
+.help_container__infoParag{
+  display: flex;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+
+.help_container__infoParag:nth-of-type(-n + 1){
+  margin-top: 30px;
+}
+
+.help_container__photo{
+  margin-left: 60px;
+}
+
+.help_container__photoImg{
+  box-shadow: 2px 2px 0 0 #323843;
+}

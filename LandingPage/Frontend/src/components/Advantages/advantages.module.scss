@@ -1,0 +1,44 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.advantages{
+  width: 1440px;
+  height: 690px;
+  background-color: $advantagesBackgroundColor;
+}
+
+.advantages_container{
+  padding: 67px 127px 64px 127px;
+  display: flex;
+  flex-direction: column;
+}
+
+.advantages_title__container{
+  margin-bottom: 37px;
+}
+
+.advantages_title{
+  @include textUbuntu(38px, 700, #323843);
+  text-transform: uppercase;
+}
+
+.advantages_images{
+  height: 228px;
+  margin-bottom: 20px;
+}
+
+.advantages_examples_container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.advantages_examples{
+  width: 376px;
+  display: flex;
+  flex-direction: column;
+}
+
+.advantages_examples__titles{
+  @include textMontserrat(18px, 400, #323843);
+  line-height: 140%
+}

@@ -10,6 +10,11 @@ import { toggleStartMessageRender } from "../../store/slices/startMessageSlice.t
 import BurgerMenu from "../BurgerMenu/BurgerMenu.tsx";
 import Footer from "../Footer/Footer.tsx";
 import Header from "../Header/Header.tsx";
+import Advantages from "../Advantages/Advantages.tsx";
+import Experience from "../Experience/Experience.tsx";
+import Road from "../Road/Road.tsx";
+import Help from "../Help/Help.tsx";
+import Call from "../Call/Call.tsx";
 
 const Main: FunctionComponent = (): ReactElement => {
     const dispatch = useAppDispatch();
@@ -39,60 +44,72 @@ const Main: FunctionComponent = (): ReactElement => {
             <Header />
             <main className={style.main}>
                 <div className={style.main_container}>
-                    {burgerMenuState && (
-                        <div className={style.burger}>
-                            <BurgerMenu />
-                        </div>
-                    )}
-                    <div className={style.main_container__info}>
-                        <span className={style.info_greetings}>
-                            привет, я ваш
-                            <br /> чат-помощник!
-                        </span>
-                        <ul className={style.info_ul}>
-                            <li className={style.info_li}>
-                                Точный расчёт финансовой ценности
-                            </li>
-                            <li className={style.info_li}>
-                                Осознанные решения в сфере карьеры
-                            </li>
-                            <li className={style.info_li}>
-                                Мотивация и уверенность
-                            </li>
-                            <li
-                                className={classNames(
-                                    style.info_li,
-                                    style.info_li_client,
-                                )}
-                            >
-                                40% клиентов меняют карьеру, 90% из них лучше
-                                понимают свой потенциал
-                            </li>
-                        </ul>
-                    </div>
-                    <img
-                        alt={"Картинка Чат Бота"}
-                        src={chatBotImage}
-                        className={style.main_image_container}
-                    />
-                    <div className={style.startMessage_container}>
-                        {startMessageVisible && <StartMessage />}
-                    </div>
-                    <div className={style.chatWindow_container}>
-                        {chatOpen && (
-                            <ChatWindow
-                                typeOfDevice={"desktop"}
-                                chatOpen={chatOpen}
-                            />
+                    <div className={style.main_container_position}>
+                        {burgerMenuState && (
+                            <div className={style.burger}>
+                                <BurgerMenu />
+                            </div>
                         )}
-                    </div>
-                    <div className={style.botIcon_container}>
-                        <BotIcon typeOfDevice={"desktop"} />
-                    </div>
-                    <div className={style.botIcon_container_mobile}>
-                        <BotIcon typeOfDevice={"mobile"} />
+                        <div className={style.main_container__info}>
+                            <span className={style.info_greetings}>
+                                привет, я ваш
+                                <br /> чат-помощник!
+                            </span>
+                            <ul className={style.info_ul}>
+                                <li className={style.info_li}>
+                                    Точный расчёт финансовой ценности
+                                </li>
+                                <li className={style.info_li}>
+                                    Осознанные решения в сфере карьеры
+                                </li>
+                                <li className={style.info_li}>
+                                    Мотивация и уверенность
+                                </li>
+                                <li
+                                    className={classNames(
+                                        style.info_li,
+                                        style.info_li_client,
+                                    )}
+                                >
+                                    40% клиентов меняют карьеру, 90% из них
+                                    лучше понимают свой потенциал
+                                </li>
+                            </ul>
+                        </div>
+                        <img
+                            alt={"Картинка Чат Бота"}
+                            src={chatBotImage}
+                            className={style.main_image_container}
+                        />
+                        <div className={style.startMessage_container}>
+                            {startMessageVisible && <StartMessage />}
+                        </div>
+                        <div className={style.chatWindow_container}>
+                            {chatOpen && (
+                                <ChatWindow
+                                    typeOfDevice={"desktop"}
+                                    chatOpen={chatOpen}
+                                />
+                            )}
+                        </div>
+                        <div className={style.botIcon_container}>
+                            <BotIcon typeOfDevice={"desktop"} />
+                        </div>
+                        <div className={style.botIcon_container_mobile}>
+                            <BotIcon typeOfDevice={"mobile"} />
+                        </div>
                     </div>
                 </div>
+
+                <Advantages />
+
+                <Experience />
+
+                <Road />
+
+                <Help />
+
+                <Call />
             </main>
             <Footer />
         </>

@@ -1,0 +1,43 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.experience{
+  width: 1440px;
+  height: calc(599px + 70px + 70px);
+  background-color: $experienceBackgroundColor;
+}
+
+.experience_container{
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.experience_title{
+  @include textUbuntu(38px, 700, #323843);
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+.experience_slider__container{
+  position: relative;
+  margin: 60px 0 ;
+  width: 984px;
+}
+
+.experience_slider__arrowContainer{
+}
+
+.experience_slider__leftArrow{
+  position: absolute;
+  left: -49px;
+  bottom: 109.5px;
+}
+
+.experience_slider__rightArrow{
+  position: absolute;
+  right: -49px;
+  bottom: 109.5px;
+}

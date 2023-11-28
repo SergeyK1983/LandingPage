@@ -1,0 +1,26 @@
+.slides{
+  height: 309px;
+  overflow: hidden;
+}
+
+.slide{
+  position: absolute;
+  height: 309px;
+  width: 984px;
+  overflow: hidden;
+  display: flex;
+  opacity: 0;
+  transition: opacity ease-in 0.2s;
+  justify-content: space-between;
+}
+
+.slide_active{
+  opacity: 1;
+}
+
+.container_slider{
+  max-width: 984px;
+  height: 309px;
+  overflow: hidden;
+  display: flex;
+}

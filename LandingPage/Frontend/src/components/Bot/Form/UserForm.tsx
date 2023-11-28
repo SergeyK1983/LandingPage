@@ -4,8 +4,9 @@ import { setUser } from "../../../store/slices/userSlice.ts";
 import { SubmitHandler, useForm } from "react-hook-form";
 import classNames from "classnames";
 import { sendSecondMessage } from "../../../store/slices/chatBotSlice.ts";
-import { useAppDispatch, useAppSelector } from "../../../types/hooks.ts";
+import { useAppDispatch } from "../../../types/hooks.ts";
 import { IUserForm } from "../../../types/chatBotTypes.ts";
+import ky from "ky";
 
 const UserForm: FunctionComponent = (): ReactElement => {
     const {
@@ -17,8 +18,6 @@ const UserForm: FunctionComponent = (): ReactElement => {
         mode: "onBlur",
     });
     const dispatch = useAppDispatch();
-
-    const formInfo = useAppSelector((state) => state.userInfo);
 
     const onSubmit: SubmitHandler<IUserForm> = async (data) => {
         dispatch(
@@ -32,15 +31,15 @@ const UserForm: FunctionComponent = (): ReactElement => {
             } as IUserForm),
         );
 
-        await fetch("http://localhost:8000/api/users/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Credentials": "true",
-            },
-            body: JSON.stringify(data),
-        });
+        await ky
+            .post("/api/users/", {
+                json: data,
+                headers: {
+                    "content-type": "application/json;charset=utf-8",
+                },
+                mode: "no-cors",
+            })
+            .json();
 
         reset();
 

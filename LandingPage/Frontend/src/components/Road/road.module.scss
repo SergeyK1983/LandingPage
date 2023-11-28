@@ -1,0 +1,95 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.road{
+  width: 1440px;
+  height: 690px;
+  background-color: $roadBackgroundColor;
+  position: relative;
+}
+
+.vector1{
+  position: absolute;
+  top: 81px;
+  left: 158.5px;
+}
+
+.vector2{
+  position: absolute;
+  top: 234px;
+  left: 303px;
+}
+
+.vector3{
+  position: absolute;
+  top: 444px;
+  left: 306.79px;
+}
+
+.img_goal{
+  width: 50px;
+  height: 50px;
+}
+
+.img_goal4{
+  display: none;
+}
+
+.road_text{
+  @include textMontserrat(20px, 500, #323843);
+  line-height: 135%;
+  margin-left: 15px;
+}
+
+.road_text4{
+  margin-left: 0;
+}
+
+.road_goal_container{
+  display: flex;
+}
+
+.goal_position_1{
+  position: absolute;
+  width: 341px;
+  height: 54px;
+  left: 127px;
+  top: 87px;
+}
+
+.goal_position_2{
+  position: absolute;
+  width: 362px;
+  height: 54px;
+  left: 850px;
+  top: 193px;
+}
+
+.goal_position_3{
+  position: absolute;
+  width: 417px;
+  height: 81px;
+  left: 285px;
+  top: 369px;
+}
+
+.goal_position_4{
+  position: absolute;
+  width: 303px;
+  height: 54px;
+  left: 900px;
+  top: 352px;
+}
+
+.start_chatRotate{
+  margin-top: 30px;
+  transform: rotate(-6.845deg);
+}
+
+.goal_button{
+  position: absolute;
+  top: 436px;
+  left: 900px;
+  height: 90px;
+  display: flex;
+}

@@ -10,6 +10,12 @@ const initialState: IUserForm = {
     userContact: "",
 };
 
+// const fetchUsers = createAsyncThunk("userInfo/fetchUsers", async function () {
+//     const responce = fetch("/api/users/", {
+//         method: "POST",
+//     });
+// });
+
 const userSlice = createSlice({
     name: "userInfo",
     initialState,
