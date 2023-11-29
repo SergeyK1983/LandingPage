@@ -54,6 +54,10 @@ const ChatWindow: FunctionComponent<ChatWindowProps> = ({
             .then((response) => response.json())
             .then((data) => setUserSalary(data.hourly_salary));
 
+        // ky.get("/api/users/salary")
+        //     .then((response) => response.json())
+        //     .then((data) => setUserSalary(data.hourly_salary));
+
         setTimeout(() => {
             dispatch(sendThirdMessage());
         }, 2000);

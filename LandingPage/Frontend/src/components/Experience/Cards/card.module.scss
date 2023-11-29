@@ -1,0 +1,46 @@
+@import "../../../styles/mixins";
+@import "../../../styles/colors";
+
+.card{
+  width: 482px;
+  height: 305px;
+  border-radius: 20px;
+  border: 2px solid #323843;
+}
+
+.card_container{
+  padding: 40px 60px;
+}
+
+.card_humanInfo_container{
+  display: flex;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.card_img{
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+
+.card_humanName{
+  @include textMontserrat(20px, 500, #323843);
+  line-height: 135%;
+}
+
+.card_humanJob{
+  @include textMontserrat(16px, 400, #505661);
+  line-height: 150%;
+}
+
+.card_humanDescription{
+  @include textMontserrat(18px, 400, #323843);
+  line-height: 140%;
+}
+
+.card_humanInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

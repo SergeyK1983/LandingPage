@@ -1,0 +1,24 @@
+.dots_container{
+  display: flex;
+}
+
+.dots{
+  width: 28px;
+  height: 28px;
+  background-color: #EAD4FF;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color ease-in 0.2s;
+}
+
+.dots_active{
+  background-color: #C68DFF;
+}
+
+.dots:hover{
+  background-color: #C68DFF;
+}
+
+.dots:nth-of-type(-n+3){
+  margin-right: 20px;
+}

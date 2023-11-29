@@ -33,3 +33,7 @@ export interface IUserForm {
     userSalary: number;
     userContact: string;
 }
+
+export interface IStartChatButton {
+    className: string;
+}

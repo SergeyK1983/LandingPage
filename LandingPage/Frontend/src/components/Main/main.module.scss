@@ -3,20 +3,24 @@
 
 .main{
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-  background-color: $layoutBackgroundColor;
+  background-color: $mainBackgroundColor;
 }
 
 .main_container{
   position: relative;
-  height: 748px;
-  width: 1310px;
-  background-color: #DEDEDE;
-  display: flex;
-  justify-content: space-between;
+  height: 808px;
+  width: 1440px;
+  background-color: $mainBackgroundColor;
+}
+
+.main_container_position{
   padding-top: 100px;
   padding-left: 130px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .startMessage_container{
@@ -33,7 +37,7 @@
 
 .botIcon_container{
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   right: 50px;
 }
 
