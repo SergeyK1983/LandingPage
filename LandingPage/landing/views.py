@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 
-from .models import User
-from .serializers import UserSerializer
+from .models import User, VisitorMessage
+from .serializers import UserSerializer, VisitorMessageSerializer
 
 
 class UserCreateView(generics.CreateAPIView):
@@ -24,6 +24,16 @@ class UserGetAPIView(APIView):
             'hourly_salary': salary.get('hourly_salary')
         }
         return Response(output)
+
+
+class VisitorMessageCreateView(generics.CreateAPIView):
+    queryset = VisitorMessage.objects.all()
+    serializer_class = VisitorMessageSerializer
+    permission_classes = [permissions.AllowAny]  # [permissions.IsAuthenticated]
+
+    def perform_create(self, serializer):
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
 
 
 # class SalaryCalculationView(generics.RetrieveUpdateAPIView):

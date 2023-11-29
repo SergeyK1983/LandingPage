@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User
+from .models import User, VisitorMessage
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -20,4 +20,19 @@ class UserAdmin(admin.ModelAdmin):
     list_filter = ('date_create', 'age', 'profession', 'monthly_income')
 
 
+class VisitorMessageAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'full_name',
+        'contact',
+        'message',
+        'date_create'
+    )
+
+    list_display_links = ('id', )
+    search_fields = ('full_name', 'contact')
+    list_filter = ('date_create', )
+
+
 admin.site.register(User, UserAdmin)
+admin.site.register(VisitorMessage, VisitorMessageAdmin)

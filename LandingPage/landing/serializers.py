@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, VisitorMessage
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -21,6 +21,19 @@ class UserSerializer(serializers.ModelSerializer):
             'userSalary',
         )
 
+
+class VisitorMessageSerializer(serializers.ModelSerializer):
+    # userName = serializers.CharField(source='full_name')
+    # userContact = serializers.CharField(source='contact')
+    # userMessage = serializers.CharField(source='message')
+
+    class Meta:
+        model = VisitorMessage
+        fields = (
+            'full_name',
+            'contact',
+            'message',
+        )
 
 # class SalaryCalcSerializer(serializers.ModelSerializer):
 #     class Meta:

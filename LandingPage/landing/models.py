@@ -32,3 +32,16 @@ class User(models.Model):
     def __str__(self):
         return self.full_name
 
+
+class VisitorMessage(models.Model):
+    full_name = models.CharField(max_length=255, verbose_name="ФИО")
+    contact = models.CharField(max_length=255, verbose_name="Контакт")
+    message = models.TextField(max_length=2000, verbose_name="Сообщение")
+    date_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+
+    class Meta:
+        verbose_name = 'Сообщение посетителя'
+        verbose_name_plural = 'Сообщения посетителей'
+
+    def __str__(self):
+        return f"{self.full_name} - {self.message[:15]}"
