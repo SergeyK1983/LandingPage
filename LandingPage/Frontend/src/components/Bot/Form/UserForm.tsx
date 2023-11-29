@@ -6,7 +6,7 @@ import classNames from "classnames";
 import { sendSecondMessage } from "../../../store/slices/chatBotSlice.ts";
 import { useAppDispatch } from "../../../types/hooks.ts";
 import { IUserForm } from "../../../types/chatBotTypes.ts";
-import ky from "ky";
+import { api } from "../../../api/api.ts";
 
 const UserForm: FunctionComponent = (): ReactElement => {
     const {
@@ -31,7 +31,7 @@ const UserForm: FunctionComponent = (): ReactElement => {
             } as IUserForm),
         );
 
-        await ky
+        await api
             .post("/api/users/", {
                 json: data,
                 headers: {
