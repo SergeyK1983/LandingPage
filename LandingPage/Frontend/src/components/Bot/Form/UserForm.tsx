@@ -20,7 +20,6 @@ const UserForm: FunctionComponent = (): ReactElement => {
     const dispatch = useAppDispatch();
 
     const onSubmit: SubmitHandler<IUserForm> = async (data) => {
-        console.log(JSON.stringify(data))
         dispatch(
             setUser({
                 userName: data.userName,
