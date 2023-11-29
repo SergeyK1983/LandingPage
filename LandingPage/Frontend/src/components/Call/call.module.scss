@@ -1,0 +1,12 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.call{
+  width: 1440px;
+  height: 807px;
+  background-color: $callBackgroundColor;
+}
+
+.call_container{
+  padding: 100px 132px 100px 130px;
+}

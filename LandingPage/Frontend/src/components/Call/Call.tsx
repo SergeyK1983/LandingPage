@@ -1,8 +1,11 @@
-const Call = () => {
+import { FunctionComponent, ReactElement } from "react";
+import style from "./call.module.scss";
+
+const Call: FunctionComponent = (): ReactElement => {
     return (
-        <div>
-            <div></div>
-        </div>
+        <section className={style.call}>
+            <div className={style.call_container}></div>
+        </section>
     );
 };
 
