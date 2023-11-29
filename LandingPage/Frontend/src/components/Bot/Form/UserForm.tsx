@@ -32,7 +32,7 @@ const UserForm: FunctionComponent = (): ReactElement => {
             } as IUserForm),
         );
         await api
-            .post("/api/users/", {
+            .post("api/users/", {
                 json: data,
                 headers: {
                     "content-type": "application/json;charset=utf-8",
