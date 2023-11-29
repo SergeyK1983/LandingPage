@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # запрещает буфферизировать сообщения
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /Backend
+WORKDIR /backend
 
 COPY LandingPage/ ./
 COPY requirements.txt ./
