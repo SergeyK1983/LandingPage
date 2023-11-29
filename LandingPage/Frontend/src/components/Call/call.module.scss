@@ -9,4 +9,94 @@
 
 .call_container{
   padding: 100px 132px 100px 130px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.call_info__container{
+  display: flex;
+  flex-direction: column;
+}
+
+.call_info__title{
+  @include textUbuntu(38px, 700, #323843);
+  text-transform: uppercase;
+  line-height: 120%;
+}
+
+.call_info__text{
+  @include textMontserrat(18px, 400 , #323843);
+  line-height: 140%;
+  margin-top: 30px;
+}
+
+.call_form__container{
+  width: 576px;
+}
+
+.call_form{
+  display: flex;
+  flex-direction: column;
+}
+
+.call_form__input{
+  margin-bottom: 16px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  @include textMontserrat(20px, 400, #323843);
+  line-height: 120%;
+  width: 100%;
+}
+
+input::placeholder {
+  @include textMontserrat(20px, 400, #B2B2B2);
+  line-height: 120%;
+}
+
+.call_form__inputLabel{
+  display: flex;
+  flex-direction: column;
+}
+
+.call_form__label_text{
+  @include textMontserrat(18px, 600, #323843);
+  line-height: 120%;
+  margin-bottom: 8px;
+}
+
+.call_form__textarea{
+  @include textMontserrat(20px, 400, #323843);
+  resize: none;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  height: 210px;
+  background: #FFFFFF;
+  padding: 20px 30px;
+}
+
+.call_form_confidence__container{
+  margin-top: 16px;
+}
+
+.call_form__confidenceText{
+  @include textMontserrat(18px, 400, #505661);
+  line-height: 140%;
+}
+
+.call_form_submitButton_container{
+  margin-top: 16px;
+}
+
+.call_form_submitButton{
+  @include textMontserrat(20px, 600, #323843);
+  padding: 20px 30px;
+  box-shadow: 2px 2px 0 0 #323843;
+  border: 2px solid #323843;
+  border-radius: 46px;
+  background: #CBE857;
+  width: 100%;
 }

@@ -1,0 +1,66 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.aboveFooter{
+  width: 1440px;
+  height: 144px;
+  background-color: $aboveFooterBackgroundColor;
+  position: relative;
+}
+
+.aboveFooter__container{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.aboveFooter_text{
+  @include textMontserrat(20px, 500, #323843);
+  line-height: 135%;
+}
+
+.aboveFooter_image0__container0{
+  position: absolute;
+  top: 32px;
+  left: 240px;
+}
+
+.aboveFooter_image0{
+  width: 76px;
+  height: 90px;
+}
+
+.aboveFooter_image1__container1{
+  position: absolute;
+  top: 7px;
+  left: 1076px;
+}
+
+.aboveFooter_image1{
+  width: 75px;
+  height: 75px;
+}
+
+.aboveFooter_image2__container2{
+  position: absolute;
+  top: 18px;
+  left: 332px;
+}
+
+.aboveFooter_image2{
+  width: 32.548px;
+  height: 36.515px;
+}
+
+.aboveFooter_image3__container3{
+  position: absolute;
+  top: 75px;
+  left: 1173px;
+}
+
+.aboveFooter_image3{
+  width: 22.216px;
+  height: 32.853px;
+}
