@@ -15,6 +15,7 @@ import Experience from "../Experience/Experience.tsx";
 import Road from "../Road/Road.tsx";
 import Help from "../Help/Help.tsx";
 import Call from "../Call/Call.tsx";
+import AboveFooter from "../AboveFooter/AboveFooter.tsx";
 
 const Main: FunctionComponent = (): ReactElement => {
     const dispatch = useAppDispatch();
@@ -110,6 +111,7 @@ const Main: FunctionComponent = (): ReactElement => {
                 <Help />
 
                 <Call />
+                <AboveFooter />
             </main>
             <Footer />
         </>
