@@ -35,7 +35,8 @@ const UserForm: FunctionComponent = (): ReactElement => {
             .post("api/users/", {
                 json: data,
                 headers: {
-                    "content-type": "application/json;charset=utf-8",
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
                 },
                 mode: "no-cors",
             })
