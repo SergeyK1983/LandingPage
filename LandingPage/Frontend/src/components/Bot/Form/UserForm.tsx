@@ -38,7 +38,6 @@ const UserForm: FunctionComponent = (): ReactElement => {
                     Accept: "application/json",
                     "Content-Type": "application/json",
                 },
-                mode: "no-cors",
             })
             .json();
 
