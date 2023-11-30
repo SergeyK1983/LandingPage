@@ -18,9 +18,9 @@ services:
 
   backend:
     container_name: backend
-    build:
-      dockerfile: Dockerfile
-      context: .
+#    build:
+#      dockerfile: Dockerfile
+#      context: .
     image: landing_backend:latest
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -30,10 +30,10 @@ services:
     depends_on:
       - pgdb
 
-#  frontend:
-#    container_name: frontend
+  frontend:
+    container_name: frontend
 #    build:
 #      dockerfile: LandingPage/Frontend/Dockerfile
-#    command: npm run server
-#    ports:
-#      - "5173:5173"
+    image: landing_frontend:latest
+    ports:
+      - "80:80"

@@ -1,16 +1,12 @@
-FROM node:18-alpine
+FROM node:21-alpine as build
 
 WORKDIR /frontend
 
-# COPY package*.json ./
+COPY ./dist /frontend/dist
+COPY ./nginx /frontend/nginx
 
-COPY . .
+FROM nginx:stable
+# 1.24.0
 
-RUN npm install
-CMD ["npm", "run", "build"]
-
-# && rm -fr node_modules
-
-EXPOSE 5173
-
-# CMD [ "serve", "-s", "build" ]
+COPY --from=build /frontend/dist /usr/share/nginx/html
+COPY --from=build /frontend/nginx/default.conf /etc/nginx/conf.d/default.conf
