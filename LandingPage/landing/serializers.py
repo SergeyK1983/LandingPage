@@ -35,10 +35,10 @@ class VisitorMessageSerializer(serializers.ModelSerializer):
             'message',
         )
 
-# class SalaryCalcSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = (
-#             'hourly_salary',
-#         )
-        # extra_kwargs = {'hourly_salary': {'read_only': True}}
+
+class SalaryCalcSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            'hourly_salary',
+        )
