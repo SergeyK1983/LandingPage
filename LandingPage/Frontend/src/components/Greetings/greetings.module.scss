@@ -1,0 +1,103 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+
+//mobile V
+.greetings_container{
+  height: 808px;
+  width: 1440px;
+  background-color: $mainBackgroundColor;
+}
+
+//mobile V
+.greetings_container_position{
+  padding-top: 100px;
+  padding-left: 130px;
+  display: flex;
+  justify-content: space-between;
+}
+
+//mobile V
+.info_greetings{
+  @include textUbuntu(64px, 700, #323843);
+  text-transform: uppercase;
+}
+
+//mobile V
+.info_li{
+  @include textMontserrat(18px, 400, #323843);
+}
+
+.info_li_client{
+  width: 490px;
+}
+
+//mobile V
+.greetings_image_desktop{
+  margin-right: 88.53px;
+  width: 588.467px;
+  height: 452.667px;
+}
+
+//mobile V
+.greetings_image_mobileTablet{
+  display: none;
+}
+
+@media screen and (max-width: 390px) {
+  .greetings{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .greetings_container{
+    position: relative;
+    height: 578px;
+    width: 390px;
+    background-color: $mainBackgroundColor;
+  }
+
+  .greetings_container_position{
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .greetings_container__info{
+    margin-top: 20px;
+  }
+
+  .info_greetings{
+    @include textUbuntu(28px, 700, #323843);
+    text-transform: uppercase;
+    line-height: 120%;
+  }
+
+  .info_ul{
+    padding: 0 0 0 20px;
+    margin: 30px 0 0 0 ;
+  }
+
+  .info_li{
+    @include textMontserrat(16px, 400, #323843);
+    line-height: 130%;
+  }
+
+  .info_li_client{
+    width: 290px;
+  }
+
+  .greetings_image_desktop{
+    display: none;
+  }
+
+  .greetings_image_mobileTablet{
+    margin-top: 30px;
+    margin-left: 67px;
+    display: block;
+    width: 214.889px;
+    height: 233.412px;
+  }
+}

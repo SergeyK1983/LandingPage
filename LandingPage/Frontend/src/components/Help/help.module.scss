@@ -6,6 +6,7 @@
   height: 564px;
   background-color: $helpBackgroundColor;
   position: relative;
+  z-index: -1;
 }
 
 .help_container{

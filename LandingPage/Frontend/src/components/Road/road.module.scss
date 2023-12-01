@@ -81,15 +81,16 @@
   top: 352px;
 }
 
-.start_chatRotate{
-  margin-top: 30px;
-  transform: rotate(-6.845deg);
-}
-
 .goal_button{
   position: absolute;
   top: 436px;
   left: 900px;
-  height: 90px;
   display: flex;
+  transform: rotate(-6.845deg);
+}
+
+.goal_image{
+  position: absolute;
+  top: 418px;
+  left: 1076px;
 }

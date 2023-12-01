@@ -7,7 +7,7 @@ import BurgerMenuIcon from "../BurgerMenu/BurgerMenuIcon.tsx";
 const Header: FunctionComponent = (): ReactElement => {
     return (
         <>
-            <header className={style.header}>
+            <header className={style.header} id={"header"}>
                 <div className={style.header_container}>
                     <div className={style.header_elements}>
                         <div className={style.header_container__logo}>
@@ -52,7 +52,7 @@ const Header: FunctionComponent = (): ReactElement => {
                             </Link>
                         </div>
                         <div className={style.burger_menu}>
-                            <BurgerMenuIcon/>
+                            <BurgerMenuIcon />
                         </div>
                     </div>
                 </div>

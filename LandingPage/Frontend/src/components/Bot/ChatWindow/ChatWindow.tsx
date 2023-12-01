@@ -5,22 +5,22 @@ import React, {
     useRef,
     useState,
 } from "react";
-import styles from "./bot.module.scss";
-import quit from "../../assets/quitChat.svg";
-import Message from "./Message/Message.tsx";
-import sendMessageIcon from "../../assets/sendMessage.svg";
-import UserForm from "./Form/UserForm.tsx";
-import ResultImage from "../../assets/ResultImage.svg";
+import styles from "./chatWindow.module.scss";
+import quit from "../../../assets/quitChat.svg";
+import Message from "../Message/Message.tsx";
+import sendMessageIcon from "../../../assets/sendMessage.svg";
+import UserForm from "../UserForm/UserForm.tsx";
+import ResultImage from "../../../assets/ResultImage.svg";
 import { Link } from "react-router-dom";
-import linkImage from "../../assets/linkImage.svg";
+import linkImage from "../../../assets/linkImage.svg";
 import {
     sendFirstMessage,
     sendThirdMessage,
     setOpen,
-} from "../../store/slices/chatBotSlice.ts";
-import { useAppDispatch, useAppSelector } from "../../types/hooks.ts";
-import { ChatWindowProps, getData } from "../../types/chatBotTypes.ts";
-import { api } from "../../api/api.ts";
+} from "../../../store/slices/chatBotSlice.ts";
+import { useAppDispatch, useAppSelector } from "../../../types/hooks.ts";
+import { ChatWindowProps, getData } from "../../../types/chatBotTypes.ts";
+import { api } from "../../../api/api.ts";
 
 const ChatWindow: FunctionComponent<ChatWindowProps> = ({
     chatOpen,

@@ -57,12 +57,17 @@ input::-webkit-inner-spin-button {
   padding: 20px 30px;
   border-radius: 46px;
   border: 2px solid #323843;
-  background-color: #E2F497;
+  background-color: #CBE857;
   @include textMontserrat(20px, 600, #323843);
 }
 
 .form_buttonActive{
   cursor: pointer;
+}
+
+
+.form_buttonActive:hover{
+  background-color: #E2F497;
 }
 
 .errorInput{

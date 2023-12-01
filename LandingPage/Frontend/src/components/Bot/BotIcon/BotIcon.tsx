@@ -1,11 +1,11 @@
 import React, { FunctionComponent, ReactElement } from "react";
-import botIcon from "../../assets/message.svg";
-import style from "./bot.module.scss";
-import { shouldStartMessageShow } from "../../store/slices/startMessageSlice.ts";
-import { setOpen } from "../../store/slices/chatBotSlice.ts";
+import botIcon from "../../../assets/message.svg";
+import style from "./botIcon.module.scss";
+import { shouldStartMessageShow } from "../../../store/slices/startMessageSlice.ts";
+import { setOpen } from "../../../store/slices/chatBotSlice.ts";
 import { Link } from "react-router-dom";
-import { BotIconProps } from "../../types/chatBotTypes.ts";
-import { useAppDispatch } from "../../types/hooks.ts";
+import { BotIconProps } from "../../../types/chatBotTypes.ts";
+import { useAppDispatch } from "../../../types/hooks.ts";
 
 const BotIcon: FunctionComponent<BotIconProps> = ({
     typeOfDevice,
@@ -20,13 +20,15 @@ const BotIcon: FunctionComponent<BotIconProps> = ({
     return (
         <>
             {typeOfDevice === "desktop" ? (
-                <button className={style.bot_button} onClick={handleClick}>
-                    <img
-                        alt={"Чат бот"}
-                        src={botIcon}
-                        className={style.bot_icon}
-                    />
-                </button>
+                <div className={style.bot_button_container}>
+                    <button className={style.bot_button} onClick={handleClick}>
+                        <img
+                            alt={"Чат бот"}
+                            src={botIcon}
+                            className={style.bot_icon}
+                        />
+                    </button>
+                </div>
             ) : (
                 <button className={style.bot_button} onClick={handleClick}>
                     <Link to={"/chatMobile"}>
