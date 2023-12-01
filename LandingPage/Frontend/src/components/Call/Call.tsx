@@ -1,7 +1,38 @@
-import { FunctionComponent, ReactElement } from "react";
+import { FunctionComponent, MouseEventHandler, ReactElement } from "react";
 import style from "./call.module.scss";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { ICallForm } from "../../types/CallFormTypes.ts";
+import { api } from "../../api/api.ts";
+import classNames from "classnames";
 
 const Call: FunctionComponent = (): ReactElement => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isValid },
+        reset,
+    } = useForm<ICallForm>({ mode: "onBlur" });
+
+    const onSubmit: SubmitHandler<ICallForm> = async (data) => {
+        await api
+            .post("api/visitormessage/", {
+                json: data,
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+            })
+            .json();
+
+        reset();
+    };
+
+    const handleClickSubmitInput: MouseEventHandler<HTMLInputElement> = (
+        event,
+    ) => {
+        event.currentTarget.classList.add(".click");
+    };
+
     return (
         <section className={style.call}>
             <div className={style.call_container}>
@@ -15,15 +46,26 @@ const Call: FunctionComponent = (): ReactElement => {
                     </span>
                 </div>
                 <div className={style.call_form__container}>
-                    <form className={style.call_form}>
+                    <form
+                        className={style.call_form}
+                        name={"callForm"}
+                        onSubmit={handleSubmit(onSubmit)}
+                    >
                         <div className={style.call_form__inputLabel}>
                             <label className={style.call_form__label_text}>
                                 Как вас зовут
                             </label>
                             <input
                                 type={"text"}
-                                className={style.call_form__input}
+                                className={classNames(style.call_form__input, {
+                                    [style.call_form__errorInput]:
+                                        errors.callUserName,
+                                })}
                                 placeholder={"Имя и фамилия"}
+                                {...register("callUserName", {
+                                    required: true,
+                                    minLength: 2,
+                                })}
                             />
                         </div>
                         <div className={style.call_form__inputLabel}>
@@ -32,15 +74,27 @@ const Call: FunctionComponent = (): ReactElement => {
                             </label>
                             <input
                                 type={"text"}
-                                className={style.call_form__input}
+                                className={classNames(style.call_form__input, {
+                                    [style.call_form__errorInput]:
+                                        errors.callUserContact,
+                                })}
                                 placeholder={"+7 или @"}
+                                {...register("callUserContact", {
+                                    required: true,
+                                    minLength: 2,
+                                })}
                             />
                         </div>
                         <div className={style.call_form__inputLabel}>
                             <label className={style.call_form__label_text}>
                                 Ваш запрос
                             </label>
-                            <textarea className={style.call_form__textarea} />
+                            <textarea
+                                className={style.call_form__textarea}
+                                {...register("callUserQuestion", {
+                                    required: false,
+                                })}
+                            />
                         </div>
                         <div className={style.call_form_confidence__container}>
                             <span className={style.call_form__confidenceText}>
@@ -53,7 +107,15 @@ const Call: FunctionComponent = (): ReactElement => {
                             <input
                                 type={"submit"}
                                 value={"Оставить заявку"}
-                                className={style.call_form_submitButton}
+                                onClick={handleClickSubmitInput}
+                                className={classNames(
+                                    style.call_form_submitButton,
+                                    {
+                                        [style.call_form_submitButtonActive]:
+                                            isValid,
+                                    },
+                                )}
+                                disabled={!isValid}
                             />
                         </div>
                     </form>

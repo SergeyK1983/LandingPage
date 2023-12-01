@@ -37,3 +37,7 @@ export interface IUserForm {
 export interface IStartChatButton {
     className: string;
 }
+
+export interface getData {
+    hourly_salary: number;
+}
