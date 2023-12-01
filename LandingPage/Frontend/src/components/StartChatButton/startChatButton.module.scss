@@ -2,6 +2,7 @@
 @import "../../styles/colors";
 
 .startChatButton{
+  z-index: 1;
   padding: 20px 30px;
   border: 2px solid #323843;
   background-color: $startChatButtonBackgroundColor;
@@ -12,4 +13,15 @@
   width: fit-content;
   height: fit-content;
   cursor: pointer;
+}
+
+.startChatButton:hover{
+  background-color: #E7CFFF;
+}
+
+
+.startChatButton:active{
+  box-shadow: none;
+  margin-left: 2px;
+  margin-top: 2px;
 }

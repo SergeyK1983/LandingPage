@@ -1,5 +1,5 @@
 import style from "./chatMobile.module.scss";
-import ChatWindow from "../Bot/ChatWindow.tsx";
+import ChatWindow from "../Bot/ChatWindow/ChatWindow.tsx";
 import { useAppSelector } from "../../types/hooks.ts";
 
 const ChatMobile = () => {

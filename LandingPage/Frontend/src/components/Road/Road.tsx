@@ -77,7 +77,9 @@ const Road: FunctionComponent = (): ReactElement => {
                 </span>
             </div>
             <div className={style.goal_button}>
-                <StartChatButton className={style.start_chatRotate} />
+                <StartChatButton className={""} />
+            </div>
+            <div className={style.goal_image}>
                 <img src={splash} alt={"иконка"} />
             </div>
         </section>
