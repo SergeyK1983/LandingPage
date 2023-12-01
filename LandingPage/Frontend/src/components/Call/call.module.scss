@@ -43,11 +43,15 @@
   margin-bottom: 16px;
   padding: 20px 30px;
   border-radius: 10px;
-  border: none;
   outline: none;
   @include textMontserrat(20px, 400, #323843);
   line-height: 120%;
   width: 100%;
+  border: 2px solid transparent;
+}
+
+.call_form__errorInput{
+  border: 2px solid #FF9898;
 }
 
 input::placeholder {
@@ -92,11 +96,26 @@ input::placeholder {
 }
 
 .call_form_submitButton{
+  cursor: not-allowed;
   @include textMontserrat(20px, 600, #323843);
   padding: 20px 30px;
-  box-shadow: 2px 2px 0 0 #323843;
   border: 2px solid #323843;
   border-radius: 46px;
   background: #CBE857;
   width: 100%;
+  box-shadow: 2px 2px 0 0 #323843;
+}
+
+.call_form_submitButtonActive{
+  cursor: pointer;
+}
+
+.call_form_submitButtonActive:hover{
+  background: #E2F497;
+}
+
+.call_form_submitButtonActive:active{
+  margin-left: 2px;
+  margin-top: 2px;
+  box-shadow: none;
 }

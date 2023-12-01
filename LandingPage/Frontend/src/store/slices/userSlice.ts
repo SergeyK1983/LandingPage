@@ -11,7 +11,7 @@ const initialState: IUserForm = {
 };
 
 // const fetchUsers = createAsyncThunk("userInfo/fetchUsers", async function () {
-//     const responce = fetch("/api/users/", {
+//     const response = fetch("/api/users/", {
 //         method: "POST",
 //     });
 // });

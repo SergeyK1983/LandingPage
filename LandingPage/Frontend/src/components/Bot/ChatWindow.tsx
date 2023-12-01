@@ -19,13 +19,14 @@ import {
     setOpen,
 } from "../../store/slices/chatBotSlice.ts";
 import { useAppDispatch, useAppSelector } from "../../types/hooks.ts";
-import { ChatWindowProps } from "../../types/chatBotTypes.ts";
+import { ChatWindowProps, getData } from "../../types/chatBotTypes.ts";
+import { api } from "../../api/api.ts";
 
 const ChatWindow: FunctionComponent<ChatWindowProps> = ({
     chatOpen,
     typeOfDevice,
 }): ReactElement => {
-    const [userSalary, setUserSalary] = useState("");
+    const [userSalary, setUserSalary] = useState<number>(0);
 
     const dispatch = useAppDispatch();
 
@@ -50,13 +51,9 @@ const ChatWindow: FunctionComponent<ChatWindowProps> = ({
     );
 
     if (resultMessage === true) {
-        fetch("http://127.0.0.1:8000/api/users/salary/")
-            .then((response) => response.json())
+        api.get("api/users/salary")
+            .then((response): Promise<getData> => response.json())
             .then((data) => setUserSalary(data.hourly_salary));
-
-        // ky.get("/api/users/salary")
-        //     .then((response) => response.json())
-        //     .then((data) => setUserSalary(data.hourly_salary));
 
         setTimeout(() => {
             dispatch(sendThirdMessage());

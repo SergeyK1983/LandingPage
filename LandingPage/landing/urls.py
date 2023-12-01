@@ -6,5 +6,5 @@ from .views import UserCreateView, UserGetListAPIView, VisitorMessageCreateView
 urlpatterns = [
     path('users/', UserCreateView.as_view(), name='user-list-create'),
     path('users/salary/', UserGetListAPIView.as_view(), name='user-salary'),
-    path('message/', VisitorMessageCreateView.as_view(), name='message-create'),
+    path('visitormessage/', VisitorMessageCreateView.as_view(), name='message-create'),
 ]
