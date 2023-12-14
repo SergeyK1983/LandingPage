@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django.contrib.sites',  # Для простых страничек
-    'django.contrib.flatpages',  # Для простых страничек
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 
     'landing.apps.LandingConfig',
 
@@ -52,15 +52,9 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-        'rest_framework.permissions.AllowAny'
+        'rest_framework.permissions.AllowAny',
     ],
-    # 'DEFAULT_PARSER_CLASSES': [
-    #     'rest_framework.parsers.JSONParser',
-    # ]
 }
 
 MIDDLEWARE = [
@@ -82,10 +76,6 @@ CORS_ALLOW_HEADERS = ('content-disposition', 'accept-encoding',
                       'content-type', 'accept', 'origin', 'Authorization',
                       'access-control-allow-methods', 'access-control-allow-origin',
                       'access-control-allow-credentials')
-
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:5173',
-# ]
 
 ROOT_URLCONF = 'LandingPage.urls'
 
@@ -124,14 +114,6 @@ DATABASES = {
         'PORT': os.getenv('PORT', '5438')
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
